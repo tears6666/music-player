@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+import AllSongs from '../components/AllSongs'
+import Playlists from '../components/Playlists'
 import { HOME_PAGE, PLAYLISTS } from '../constants/routes.constants'
-import AllSongs from '../pages/AllSongs';
-import Playlists from '../pages/Playlists'
 import { Layout } from './layout';
 
 export default function App(){
