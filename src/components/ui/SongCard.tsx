@@ -1,9 +1,9 @@
 import { useFormDuration } from '../../hooks/useFormDuration'
-import type { Song } from '../../shared/types/songs.interface'
+import type { ISong } from '../../shared/types/songs.interface'
 
 interface SongCardProps {
-	song: Song
-	onClick?: (song: Song) => void
+	song: ISong
+	onClick?: (song: ISong) => void
 }
 export const SongCard = ({ song, onClick }: SongCardProps) => {
 	const formatDuration = useFormDuration()
@@ -13,15 +13,6 @@ export const SongCard = ({ song, onClick }: SongCardProps) => {
 			className='group w-full text-left rounded-2xl border border-neutral-700 bg-neutral-900/40 p-3 transition-all hover:-translate-y-0.5 hover:border-neutral-500 hover:bg-neutral-900/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/60'
 		>
 			<div className='flex gap-3'>
-				<div className='relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-neutral-700 bg-neutral-800'>
-					<img
-						src={song.coverUrl}
-						alt={`${song.title} cover`}
-						loading='lazy'
-						className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]'
-					/>
-				</div>
-
 				<div className='min-w-0 flex-1'>
 					<div className='flex items-start justify-between gap-3'>
 						<div className='min-w-0'>
