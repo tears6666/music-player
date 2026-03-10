@@ -1,17 +1,17 @@
+import { Heart } from 'lucide-react'
 import { useFormDuration } from '../../hooks/useFormDuration'
+import { useToggleFavorite } from '../../hooks/useToggleFavorite'
 import type { ISong } from '../../shared/types/songs.interface'
 
 interface SongCardProps {
 	song: ISong
-	onClick?: (song: ISong) => void
 }
-export const SongCard = ({ song, onClick }: SongCardProps) => {
+export const SongCard = ({ song }: SongCardProps) => {
 	const formatDuration = useFormDuration()
+	const { favorite, toggleFavorite } = useToggleFavorite(song)
+
 	return (
-		<button
-			onClick={() => onClick?.(song)}
-			className='group w-full text-left rounded-2xl border border-neutral-700 bg-neutral-900/40 p-3 transition-all hover:-translate-y-0.5 hover:border-neutral-500 hover:bg-neutral-900/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/60'
-		>
+		<button className='group relative w-full text-left rounded-2xl border border-neutral-700 bg-neutral-900/40 p-3 transition-all hover:-translate-y-0.5 hover:border-neutral-500 hover:bg-neutral-900/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/60'>
 			<div className='flex gap-3'>
 				<div className='min-w-0 flex-1'>
 					<div className='flex items-start justify-between gap-3'>
@@ -41,6 +41,19 @@ export const SongCard = ({ song, onClick }: SongCardProps) => {
 					</div>
 				</div>
 			</div>
+
+			<button
+				onClick={toggleFavorite}
+				className={
+					'absolute right-3 top-12 inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900/80 text-neutral-400 opacity-0 ring-1 ring-neutral-700 transition hover:bg-neutral-800 hover:text-red-400 group-hover:opacity-100'
+				}
+			>
+				<Heart
+					className={`h-4 w-4 transition ${
+						favorite ? 'fill-red-500 text-red-500' : ''
+					}`}
+				/>
+			</button>
 		</button>
 	)
 }

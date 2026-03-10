@@ -1,6 +1,6 @@
-import type { Song } from '../types/songs.interface'
+import type { ISong } from '../types/songs.interface'
 
-export const SONGS: Song[] = [
+export const SONGS: ISong[] = [
 	{
 		id: 1,
 		title: 'Paranoid Android',
@@ -98,7 +98,8 @@ export const SONGS: Song[] = [
 		genre: 'Electronic',
 		durationSec: 251,
 		coverUrl: 'https://picsum.photos/seed/radiohead-9/512/512',
-		audioUrl: 'https://example.com/audio/radiohead-everything-in-its-right-place.mp3',
+		audioUrl:
+			'https://example.com/audio/radiohead-everything-in-its-right-place.mp3',
 	},
 	{
 		id: 10,
@@ -120,7 +121,8 @@ export const SONGS: Song[] = [
 		genre: 'Alternative',
 		durationSec: 356,
 		coverUrl: 'https://picsum.photos/seed/radiohead-11/512/512',
-		audioUrl: 'https://example.com/audio/radiohead-how-to-disappear-completely.mp3',
+		audioUrl:
+			'https://example.com/audio/radiohead-how-to-disappear-completely.mp3',
 	},
 	{
 		id: 12,

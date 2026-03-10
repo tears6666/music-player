@@ -1,25 +1,26 @@
 import { useMemo, useState } from 'react'
 import type { ISong } from '../shared/types/songs.interface'
 
-export const useHandleSearch = (products: ISong[] | undefined) => {
+export const useHandleSearch = (songs: ISong[] | undefined) => {
+	//usestate
 	const [searchQuery, setSearchQuery] = useState('')
-
+	//state funcs
 	const handleSearch = (query: string) => {
 		setSearchQuery(query)
 	}
-
-	const filteredProducts = useMemo(() => {
+	const filteredSongs = useMemo(() => {
 		if (!searchQuery) {
-			return products
+			return songs
 		}
-		return products?.filter(product =>
-			product.title.toLowerCase().includes(searchQuery.toLowerCase())
+		return songs?.filter(song =>
+			song.title.toLowerCase().includes(searchQuery.toLowerCase()),
 		)
-	}, [searchQuery, products])
+	}, [searchQuery, songs])
 
 	return {
 		searchQuery,
 		handleSearch,
-		filteredProducts,
+		filteredSongs,
+		totalSongs: songs?.length,
 	}
 }

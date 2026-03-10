@@ -1,4 +1,8 @@
-import { HOME_PAGE, PLAYLISTS } from '../../constants/routes.constants'
+import {
+	FAVORITES,
+	HOME_PAGE,
+	PLAYLISTS,
+} from '../../constants/routes.constants'
 import type { LinkType } from '../types/link.type'
 
 export const LINK_LIST: LinkType[] = [
@@ -11,5 +15,10 @@ export const LINK_LIST: LinkType[] = [
 		id: 2,
 		text: 'Playlists',
 		to: PLAYLISTS,
+	},
+	{
+		id: 3,
+		text: 'Favorites',
+		to: FAVORITES,
 	},
 ]
