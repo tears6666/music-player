@@ -1,5 +1,6 @@
 import { Heart } from 'lucide-react'
 import { useFormDuration } from '../../hooks/useFormDuration'
+import { useMusic } from '../../hooks/useMusic'
 import { useToggleFavorite } from '../../hooks/useToggleFavorite'
 import type { ISong } from '../../shared/types/songs.interface'
 
@@ -9,9 +10,20 @@ interface SongCardProps {
 export const SongCard = ({ song }: SongCardProps) => {
 	const formatDuration = useFormDuration()
 	const { favorite, toggleFavorite } = useToggleFavorite(song)
+	const { handleCurrentSong, currentTrack } = useMusic()
 
+	const openTrack = () => handleCurrentSong({ song, index: song.id })
+	const isCurrent = currentTrack?.id === song.id
 	return (
-		<button className='group relative w-full text-left rounded-2xl border border-neutral-700 bg-neutral-900/40 p-3 transition-all hover:-translate-y-0.5 hover:border-neutral-500 hover:bg-neutral-900/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/60'>
+		<div
+			role='button'
+			onClick={() => openTrack()}
+			className={`group relative w-full text-left rounded-2xl border p-3 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/60 ${
+				isCurrent
+					? 'border-red-500/70 bg-red-500/10'
+					: 'border-neutral-700 bg-neutral-900/40 hover:-translate-y-0.5 hover:border-neutral-500 hover:bg-neutral-900/70'
+			}`}
+		>
 			<div className='flex gap-3'>
 				<div className='min-w-0 flex-1'>
 					<div className='flex items-start justify-between gap-3'>
@@ -41,7 +53,6 @@ export const SongCard = ({ song }: SongCardProps) => {
 					</div>
 				</div>
 			</div>
-
 			<button
 				onClick={toggleFavorite}
 				className={
@@ -54,6 +65,6 @@ export const SongCard = ({ song }: SongCardProps) => {
 					}`}
 				/>
 			</button>
-		</button>
+		</div>
 	)
 }
