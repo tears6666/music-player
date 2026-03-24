@@ -2,7 +2,7 @@ import { Heart } from 'lucide-react'
 import { useFormDuration } from '../../hooks/useFormDuration'
 import { useMusic } from '../../hooks/useMusic'
 import { useToggleFavorite } from '../../hooks/useToggleFavorite'
-import type { ISong } from '../../shared/types/songs.interface'
+import type { ISong } from '../../shared/types/songs.interfaces'
 
 interface SongCardProps {
 	song: ISong
@@ -11,9 +11,9 @@ export const SongCard = ({ song }: SongCardProps) => {
 	const formatDuration = useFormDuration()
 	const { favorite, toggleFavorite } = useToggleFavorite(song)
 	const { handleCurrentSong, currentTrack } = useMusic()
-
 	const openTrack = () => handleCurrentSong({ song, index: song.id })
 	const isCurrent = currentTrack?.id === song.id
+
 	return (
 		<div
 			role='button'
@@ -39,7 +39,6 @@ export const SongCard = ({ song }: SongCardProps) => {
 							{formatDuration(song.durationSec)}
 						</div>
 					</div>
-
 					<div className='mt-2 flex flex-wrap items-center gap-2'>
 						<span className='rounded-full border border-neutral-700 bg-neutral-800/60 px-2 py-0.5 text-xs text-neutral-300'>
 							{song.album}

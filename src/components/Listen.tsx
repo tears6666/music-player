@@ -12,7 +12,9 @@ export const Listen = () => {
 					<h3 className='truncate text-base font-semibold text-neutral-100'>
 						{currentTrack.title}
 					</h3>
-					<p className='truncate text-sm text-neutral-400'>{currentTrack.artist}</p>
+					<p className='truncate text-sm text-neutral-400'>
+						{currentTrack.artist}
+					</p>
 				</div>
 			</div>
 

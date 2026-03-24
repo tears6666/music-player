@@ -1,4 +1,4 @@
-import type { ISong } from '../types/songs.interface'
+import type { ISong } from '../types/songs.interfaces'
 
 export const SONGS: ISong[] = [
 	{

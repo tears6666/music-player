@@ -6,7 +6,7 @@ import { SongCard } from './ui/SongCard'
 export default function AllSongs() {
 	const { handleSearch, filteredSongs, totalSongs } = useHandleSearch(SONGS)
 	return (
-		<div className='h-150 overflow-y-scroll rounded-2xl border-[0.5px] border-neutral-600 bg-neutral-800 p-6'>
+		<div className='h-150 w-300 overflow-y-scroll rounded-2xl border-[0.5px] border-neutral-600 bg-neutral-800 p-6'>
 			<div className='mb-6 flex items-end justify-between gap-4'>
 				<div>
 					<h1 className='text-3xl font-bold'>All songs ({totalSongs})</h1>

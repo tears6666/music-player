@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { ISong } from '../shared/types/songs.interface'
+import type { ISong } from '../shared/types/songs.interfaces'
 
 export const useHandleSearch = (songs: ISong[] | undefined) => {
 	//usestate

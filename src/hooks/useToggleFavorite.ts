@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { ISong } from '../shared/types/songs.interface'
+import type { ISong } from '../shared/types/songs.interfaces'
 import { useSongStore } from '../store/store'
 
 export const useToggleFavorite = (song: ISong) => {

@@ -1,9 +1,9 @@
-import type { ISong } from '../shared/types/songs.interface'
+import type { ISong } from '../shared/types/songs.interfaces'
 import { useSongStore } from '../store/store'
 
 type args = {
-  song: ISong
-  index: number
+	song: ISong
+	index: number
 }
 
 export const useMusic = () => {
